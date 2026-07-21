@@ -6,7 +6,7 @@
  result.course = course;
  result.marks = marks;
 return result; }
-
+///
 void viewCourseResult(CourseResult result)
  {
  printf("%s: %s\t\t [Credit: %.1f]\n",
