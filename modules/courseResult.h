@@ -8,7 +8,7 @@ typedef struct CourseResult
 Course *course;
 double marks;
 } CourseResult;
-
+/////
 CourseResult createCourseResult(Course *course, double marks);
 void viewCourseResult(CourseResult result);
 
