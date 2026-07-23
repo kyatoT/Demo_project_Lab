@@ -1,17 +1,18 @@
-#include <stdio.h>
-#include "courseResult.h"
+#ifndef COURSE_RESULT_H
+#define COURSE_RESULT_H
 
-CourseResult createCourseResult(Course *course, double marks)
-{
-    CourseResult result;
-    result.course = course;
-    result.marks = marks;
-    return result;
-}
+#include "course.h"
 
-void viewCourseResult(CourseResult result)
+typedef struct CourseResult
 {
-    printf("%s: %s\t\t [Credit: %.1f]\n",
-           result.course->code, result.course->name, result.course->credit);
-    printf("Marks: %.2f\n", result.marks);
-}
+    Course *course;
+    double marks;
+} CourseResult;
+
+CourseResult createCourseResult(Course *course, double marks);
+void sortCourseResultsBySemester(CourseResult results[], int n_results);
+void filterCourseResultsBySemester(CourseResult results[], int n_results, int semester, CourseResult filtered[]);
+int countCourseResultsBeforeNull(CourseResult results[], int n_results);
+void viewCourseResult(CourseResult result);
+
+#endif
