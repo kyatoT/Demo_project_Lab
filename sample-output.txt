@@ -1,0 +1,9 @@
+Code: CSE 4107
+Name: Structured Programming I
+Credit: 3.0
+Code: CSE 4108
+Name: Structured Programming I Lab
+Credit: 1.5
+Code: CSE 4203
+Name: Discrete Mathematics
+Credit: 3.0
