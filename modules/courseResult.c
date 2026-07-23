@@ -1,32 +1,18 @@
-#include <stdio.h>
-#include "courseResult.h"
+#ifndef COURSE_RESULT_H
+#define COURSE_RESULT_H
 
-CourseResult createCompletedCourseResult(Course *course, double marks)
-{
-    CourseResult result;
-    result.course = course;
-    result.marks = marks;
-    result.completed = 1;
-    return result;
-}
+#include "course.h"
 
-CourseResult createIncompleteCourseResult(Course *course)
+typedef struct CourseResult
 {
-    CourseResult result;
-    result.course = course;
-    result.marks = 0.0;
-    result.completed = 0;
-    return result;
-}
+    Course *course;
+    double marks;
+} CourseResult;
 
-void viewCourseResult(CourseResult result)
-{
-    printf("%s: %s\t\t [Credit: %.1f]\n",
-           result.course->code, result.course->name, result.course->credit);
-    if (!result.completed)
-    {
-        printf("Incomplete\n");
-        return;
-    }
-    printf("Marks: %.2f\n", result.marks);
-}
+CourseResult createCourseResult(Course *course, double marks);
+void sortCourseResultsBySemester(CourseResult results[], int n_results);
+void filterCourseResultsBySemester(CourseResult results[], int n_results, int semester, CourseResult filtered[]);
+int countCourseResultsBeforeNull(CourseResult results[], int n_results);
+void viewCourseResult(CourseResult result);
+
+#endif
